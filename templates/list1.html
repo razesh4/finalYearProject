@@ -1,0 +1,172 @@
+{% load mathfilters %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Food Recommendation System | Homepage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styless.css">
+</head>
+
+<body>
+    <!-- code here -->
+    <div class="container my-4 py-4">
+        <div class="shadow">
+            <form class="border border-1 rounded p-3">
+                <fieldset>
+                    <legend class="text-center fs-1 fw-bold text-uppercase" style="font-family: 'Tourney', sans-serif;">
+                        Diet Recommendation System</legend>
+                    <div class="border border-1 rounded px-2 mx-4 py-2 my-2 mx-auto mb-4">
+                        <legend class="text-center fs-5 fw-semibold text-uppercase">List of meals</legend>
+                        <hr>
+
+                        {% for x in datas %}
+                        <div class="text-center mb-2">
+                            Calories Required : {{x.CaloriresNeeded}} cal.
+                        </div>
+                        <div
+                            class="row row-col-lg-auto g-3 align-items-center justify-content-center grid gap-3 mb-4 px-2">
+                            {% for foodTimes,foodItem,cal,weg in x.output %}
+                            <div class="col-12 col-md-auto  border border-1 rounded pb-2 text-black shadow"
+                                style="background-color: #8ed1d4;">
+                                <div class="text-center fs-4 fw-bold text-uppercase p-2">
+                                    {{ foodTimes.0 |title}} {{foodTimes.1|mul:x.CaloriresNeeded |floatformat:1}}cal.
+                                </div>
+                                <div class="text-left">
+                                    <ol class="list-group">
+                                        <li class="list-group-item text-black"
+                                            style="background-color: #8ed1d4;">
+                                            <div class="col-md-auto">
+                                                <div class="row fs-5 text-capitalize">
+                                                    {{foodItem.0}}
+                                                </div>
+                                                <div class="row">
+                                                    Calorie : {{cal.0}} cal. - Weight : {{weg.0}} gm.
+                                                </div>
+                                                <div class="row fw-bold">
+                                                    Required weight to be taken : {{weg.0|div:cal.0|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="list-group-item text-black"
+                                            style="background-color: #8ed1d4;">
+                                            <div class="col-md-auto">
+                                                <div class="row fs-5 text-capitalize">
+                                                    {{foodItem.1}}
+                                                </div>
+                                                <div class="row">
+                                                    Calorie : {{cal.1}} cal. - Weight : {{weg.1}} gm.
+                                                </div>
+                                                <div class="row fw-bold">
+                                                    Required weight to be taken : {{weg.1|div:cal.1|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item text-black"
+                                            style="background-color: #8ed1d4;">
+                                            <div class="col-md-auto">
+                                                <div class="row fs-5 text-capitalize">
+                                                    {{foodItem.2}}
+                                                </div>
+                                                <div class="row">
+                                                    Calorie : {{cal.2}} cal. - Weight : {{weg.2}} gm.
+                                                </div>
+                                                <div class="row fw-bold">
+                                                    Required weight to be taken : {{weg.2|div:cal.2|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item text-black"
+                                            style="background-color: #8ed1d4;">
+                                            <div class="col-md-auto">
+                                                <div class="row fs-5 text-capitalize">
+                                                    {{foodItem.3}}
+                                                </div>
+                                                <div class="row">
+                                                    Calorie : {{cal.3}} cal. - Weight : {{weg.3}} gm.
+                                                </div>
+                                                <div class="row fw-bold">
+                                                    Required weight to be taken : {{weg.3|div:cal.3|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item text-black"
+                                            style="background-color: #8ed1d4;">
+                                            <div class="col-md-auto">
+                                                <div class="row fs-5 text-capitalize">
+                                                    {{foodItem.4}}
+                                                </div>
+                                                <div class="row">
+                                                    Calorie : {{cal.4}} cal. - Weight : {{weg.4}} gm.
+                                                </div>
+                                                <div class="row fw-bold">
+                                                    Required weight to be taken : {{weg.4|div:cal.4|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            {% endfor %}<!-- foodTimes.items -->
+
+
+                            <div class="col-12 col-md-auto  border border-1 rounded pb-2 text-black shadow"
+                                style="background-color: #8ed1d4;">
+                                <div class="text-center fs-4 fw-bold">
+                                    Drinks
+                                </div>
+                                <div class="text-left">
+                                    <ol class="list-group list-group-numbered">
+                                        {% for drink in x.drinks %}
+                                        <li class="list-group-item text-black text-capitalize"
+                                            style="background-color: #8ed1d4;">
+                                            {{drink}}
+                                        </li>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        {% for a,b in x.output %}
+                        {{a.0}} {{a.1|mul:x.CaloriresNeeded}}
+                        <ol class="list-group list-group-numbered">
+                            {% for food in b %}
+                            <li class="list-group-item">{{food}}</li>
+                            {% endfor %}
+                        </ol>
+                        {% endfor %}
+                        {% endfor %} <!-- datas -->
+                    </div>
+                    <div class="row grid gap-3 m-2">
+                        <button onclick="javascript:history.back()"
+                            class="col text-center btn btn-lg btn-primary fs-2 fw-bold">Done</button>
+
+                        {% comment %} <button onclick="javascript:alert('Hello, Click ok to go Back')"
+                            class="col text-center btn btn-lg btn-warning fs-2 fw-bold">
+                            Refresh
+                        </button> {% endcomment %}
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

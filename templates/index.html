@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FRS | BMI Values </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styless.css">
+</head>
+
+<body>
+    <!-- code here -->
+    <section>
+        <div class="position-relative vw-25 vw-50 vw-75 vw-100" style="height: 100vh;">
+            <div class="position-absolute top-50 start-50 translate-middle shadow">
+                <!-- action="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/person/" -->
+                <form class="row border border-1 rounded p-3 bg-light" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend class="text-center fs-1 fw-bold text-uppercase"
+                            style="font-family: 'Tourney', sans-serif;">Diet
+                            Recommendation System</legend>
+                        <div class="border border-1 rounded px-2 mx-4 py-2 my-2">
+                            <legend class="text-center fs-5 fw-semibold text-uppercase">Modify &amp; Submit</legend>
+                            <hr>
+                            <div class="input-group mb-3" style="height: 50px;">
+                                <span class="input-group-text fw-bold">AGE</span>
+                                <input type="number" class="form-control" min="15" max="120"
+                                    placeholder="eg. 10, 15, 35" name="age">
+                                <span class="input-group-text">YRS</span>
+                            </div>
+                            <div class="input-group mb-3" style="height: 50px;">
+                                <span class="input-group-text fw-bold">HEIGHT</span>
+                                <input type="number" class="form-control" placeholder="eg. 145, 155, 160" name="height" required>
+                                <span class="input-group-text">CM</span>
+                            </div>
+                            <div class="input-group mb-3" style="height: 50px;">
+                                <span class="input-group-text fw-bold">WEIGHT</span>
+                                <input type="number" class="form-control" min="40" max="150"
+                                    placeholder="eg. 45, 55, 80" name="weight" required>
+                                <span class="input-group-text">KG</span>
+                            </div>
+                            <div class="col input-group mb-3"style="height: 50px;">
+                                <span class="input-group-text fw-bold">GENDER</span>
+                                <div class="form-floating border border-1 pt-3 bg-light text-center">
+                                    <div class="form-check form-check-inline px-3">
+                                        <input class="form-check-input" type="radio" name="gender" value="male" checked>
+                                        <label class="form-check-label" for="inlineRadio1">MALE</label>
+                                    </div>
+                                    <div class="form-check form-check-inline px-3">
+                                        <input class="form-check-input" type="radio" name="gender" value="female">
+                                        <label class="form-check-label" for="inlineRadio2">FEMALE</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold">ACTIVITY</span>
+                                <div class="form-floating">
+                                    <select class="form-select py-0" name="activity">
+                                        <!-- <option value="0">Select an activity</option>
+                                        <hr> -->
+                                        <option value="sedentary">Little / No Exercise</option>
+                                        <option value="lightly_active">Little Exercise</option>
+                                        <option value="moderately_active">Morderate (3-5 days/week)</option>
+                                        <option value="very_active">Very Active (6-7 days/week)</option>
+                                        <option value="extra_active">Extra Acitve(very active &amp; physical job)</option>
+                                    </select>
+                                    <!-- <input list="exercises" class="form-select py-0" name="activity" placeholder="eg. Little Exercise" required>
+                                    <datalist id="exercises">
+                                        <option value="Little / No Exercise">1</option>
+                                        <option value="Little Exercise">2</option>
+                                        <option value="Morderate (3-5 days/week)">3</option>
+                                        <option value="Very Active (6-7 days/week)">4</option>
+                                        <option value="Extra Acitve(very active &amp; physical job)">5</option>
+                                    </datalist> -->
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text fw-bold">WEIGHT PLAN</span>
+                                <div class="form-floating">
+                                    <select class="form-select py-0" name="weight_plan">
+                                        <!-- <option value="0">Select an appropriate wt. plan</option>
+                                        <hr> -->
+                                        <option value="maintain_weight">Mantain Weight</option>
+                                        <option value="weight_loss">Weight Loss</option>
+                                        <option value="weight_gain">Weight Gain</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col input-group mb-3"style="height: 50px;">
+                                <span class="col col-md-auto input-group-text fw-bold">MEALS</span>
+                                <div class="col col-md-auto form-floating pt-1 py-2 border border-1 bg-primary-subtle">
+                                    <input type="range" class="form-range px-1 pt-3" id="rangeInput" name="meals" min="3"
+                                        max="5" value="3" oninput="amount.value=rangeInput.value">
+                                </div>
+                                <span class="col col-md-auto input-group-text"><output id="amount"
+                                        class="border border-1 fw-bold text-primary px-2 mx-1" name="amount"
+                                        for="rangeInput">3</output>MEALS/DAY</span>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-lg btn-primary shadow fw-bold">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>        
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
