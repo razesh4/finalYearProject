@@ -4,10 +4,10 @@ Links for the Model
 
 https://drive.google.com/file/d/13TxhUb1wr4tTobE2c07F7SW6O5s3_1h5/view?usp=sharing
 
-----------------------------------------------------------------------------------
-##################################################################################
-----------------------------------------------------------------------------------
-<-----------------------------------Run Program---------------------------------->
+----------------------------------------------------------
+##########################################################
+----------------------------------------------------------
+<------------------Run Program--------------------------->
 1. Open terminal 
 2. Execute :- pythom manage.py runserver 
 
@@ -34,23 +34,9 @@ https://drive.google.com/file/d/13TxhUb1wr4tTobE2c07F7SW6O5s3_1h5/view?usp=shari
 3. Make any changes and see the difference on the site
 4. You can make API endpoint with this method and integrate on other similar 
    projects
-----------------------------------------------------------------------------------
-##################################################################################
-----------------------------------------------------------------------------------
-
-				Requirements and Library Packages
-1. Mathfilter - pip install django-mathfilters 
-				https://pypi.org/project/django-mathfilters/
-				add this app in django project settings
-
-2. Rest Framework - pip install djangorestframework
-					https://www.django-rest-framework.org/
-					for making APIs end point to integrate in other applications
-
-3. Pandas - lastest package
-4. Tensorflow - latest package
-5. sklearn - latetst package
-6. Numpy - latest package
+----------------------------------------------------------
+##########################################################
+----------------------------------------------------------
 
 ----------------------------------------------------------------------------------
 ##################################################################################
