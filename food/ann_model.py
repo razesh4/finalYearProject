@@ -1,16 +1,16 @@
 import pandas as pd
 import tensorflow as tf
-from tensorflow.keras.models import load_model
-from tensorflow import keras
+# from tensorflow.keras.models import load_model
+from keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
-import random
 
 class Load_data():
     df=pd.read_csv('static\\models\\sorted_nepali_food.csv')
     df = df.fillna('')
-    model=load_model('static\\models\\food_model.h5')
+    model=load_model('static\\models\\food_model.h5',compile=False)
+    # model = tf.keras.models.load_model("static\\models\\food_model.h5")
     scaler=StandardScaler()
     x_train_scaled=scaler.fit(df.iloc[:,5:15])
     def __init__(self):

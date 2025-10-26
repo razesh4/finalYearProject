@@ -1,13 +1,14 @@
 import pandas as pd
 import tensorflow as tf
-from tensorflow.keras.models import load_model
-from tensorflow import keras
+# from tensorflow.keras.models import load_model
+from keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
 df=pd.read_csv('static\\models\\sorted_nepali_food.csv')
-model=load_model('static\\models\\food_model.h5')
+# model=load_model('static\\models\\food_model.h5')
+model = tf.keras.models.load_model('static\\models\\food_model.h5')
 scaler=StandardScaler()
 x_train_scaled=scaler.fit(df.iloc[:,5:15])
 
@@ -71,10 +72,7 @@ def reccomended_food(calorie):
     food=df.iloc[index_number-10:index_number+10].sample(10)
     return food
 
-# for bmi values the out put
+# for bmi values the output
 calorie=500
 reccomended_food(calorie)
 # print(drinks())
-
-
-

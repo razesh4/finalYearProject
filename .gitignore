@@ -1,3 +1,8 @@
 static/models/food_model.h5
 static/csv/alpha_developed_recipes.csv
 static/csv/recipes.csv
+.vscode
+\diet\__pycache__
+\food\__pycache__
+\food\migrations
+\food\templatetags

@@ -27,12 +27,15 @@
                     <legend class="text-center fs-1 fw-bold text-uppercase" style="font-family: 'Tourney', sans-serif;">
                         Diet Recommendation System</legend>
                     <div class="border border-1 rounded px-2 mx-4 py-2 my-2 mx-auto mb-4">
-                        <legend class="text-center fs-5 fw-semibold text-uppercase">List of meals</legend>
+                        <legend class="text-center fs-5 fw-semibold text-uppercase text-decoration-underline">List of
+                            meals</legend>
                         <hr>
 
                         {% for x in datas %}
-                        <div class="text-center mb-2">
-                            Calories Required : {{x.CaloriresNeeded}} cal.
+                        <div class="text-center mb-4">
+                            <span class="shadow p-2 rounded bg-primary-subtle fw-bold text-primary">
+                                Calories Required : {{x.CaloriresNeeded}} cal.
+                            </span>
                         </div>
                         <div
                             class="row row-col-lg-auto g-3 align-items-center justify-content-center grid gap-3 mb-4 px-2">
@@ -44,23 +47,28 @@
                                 </div>
                                 <div class="text-left">
                                     <ol class="list-group">
-                                        <li class="list-group-item text-black"
-                                            style="background-color: #8ed1d4;">
-                                            <div class="col-md-auto">
-                                                <div class="row fs-5 text-capitalize">
-                                                    {{foodItem.0}}
-                                                </div>
-                                                <div class="row">
-                                                    Calorie : {{cal.0}} cal. - Weight : {{weg.0}} gm.
-                                                </div>
-                                                <div class="row fw-bold">
-                                                    Required weight to be taken : {{weg.0|div:cal.0|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                        <li class="list-group-item text-black container" style="background-color: #8ed1d4;">
+                                            <div class="row">
+                                                <!-- <div class="col col-1 text-center">
+                                                    1
+                                                </div> -->
+                                                <div class="col">
+                                                    <div class="row fs-5 text-capitalize">
+                                                        {{foodItem.0}}
+                                                    </div>
+                                                    <div class="row">
+                                                        Calorie : {{cal.0}} cal. - Weight : {{weg.0}} gm.
+                                                    </div>
+                                                    <div class="row fw-semibold">
+                                                        Consuming Amount :
+                                                        {{weg.0|div:cal.0|mul:foodTimes.1|mul:x.CaloriresNeeded|floatformat:2}} gm.
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </li>
 
-                                        <li class="list-group-item text-black"
-                                            style="background-color: #8ed1d4;">
+                                        <li class="list-group-item text-black" style="background-color: #8ed1d4;">
                                             <div class="col-md-auto">
                                                 <div class="row fs-5 text-capitalize">
                                                     {{foodItem.1}}
@@ -68,13 +76,13 @@
                                                 <div class="row">
                                                     Calorie : {{cal.1}} cal. - Weight : {{weg.1}} gm.
                                                 </div>
-                                                <div class="row fw-bold">
-                                                    Required weight to be taken : {{weg.1|div:cal.1|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                <div class="row fw-semibold">
+                                                    Consuming Amount :
+                                                    {{weg.1|div:cal.1|mul:foodTimes.1|mul:x.CaloriresNeeded|floatformat:2}} gm.
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item text-black"
-                                            style="background-color: #8ed1d4;">
+                                        <li class="list-group-item text-black" style="background-color: #8ed1d4;">
                                             <div class="col-md-auto">
                                                 <div class="row fs-5 text-capitalize">
                                                     {{foodItem.2}}
@@ -82,13 +90,13 @@
                                                 <div class="row">
                                                     Calorie : {{cal.2}} cal. - Weight : {{weg.2}} gm.
                                                 </div>
-                                                <div class="row fw-bold">
-                                                    Required weight to be taken : {{weg.2|div:cal.2|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                <div class="row fw-semibold">
+                                                    Consuming Amount :
+                                                    {{weg.2|div:cal.2|mul:foodTimes.1|mul:x.CaloriresNeeded|floatformat:2}} gm.
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item text-black"
-                                            style="background-color: #8ed1d4;">
+                                        <li class="list-group-item text-black" style="background-color: #8ed1d4;">
                                             <div class="col-md-auto">
                                                 <div class="row fs-5 text-capitalize">
                                                     {{foodItem.3}}
@@ -96,13 +104,13 @@
                                                 <div class="row">
                                                     Calorie : {{cal.3}} cal. - Weight : {{weg.3}} gm.
                                                 </div>
-                                                <div class="row fw-bold">
-                                                    Required weight to be taken : {{weg.3|div:cal.3|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                <div class="row fw-semibold">
+                                                    Consuming Amount :
+                                                    {{weg.3|div:cal.3|mul:foodTimes.1|mul:x.CaloriresNeeded|floatformat:2}} gm.
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item text-black"
-                                            style="background-color: #8ed1d4;">
+                                        <li class="list-group-item text-black" style="background-color: #8ed1d4;">
                                             <div class="col-md-auto">
                                                 <div class="row fs-5 text-capitalize">
                                                     {{foodItem.4}}
@@ -110,8 +118,9 @@
                                                 <div class="row">
                                                     Calorie : {{cal.4}} cal. - Weight : {{weg.4}} gm.
                                                 </div>
-                                                <div class="row fw-bold">
-                                                    Required weight to be taken : {{weg.4|div:cal.4|mul:foodTimes.1|mul:x.CaloriresNeeded |floatformat:2}} gm.
+                                                <div class="row fw-semibold">
+                                                    Consuming Amount :
+                                                    {{weg.4|div:cal.4|mul:foodTimes.1|mul:x.CaloriresNeeded|floatformat:2}} gm.
                                                 </div>
                                             </div>
                                         </li>
